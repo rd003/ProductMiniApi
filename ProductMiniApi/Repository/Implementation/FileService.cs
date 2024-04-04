@@ -50,8 +50,9 @@ namespace ProductMiniApi.Repository.Implementation
         {
             try
             {
-                var wwwPath = this.environment.WebRootPath;
-                var path = Path.Combine(wwwPath, "Uploads\\", imageFileName);
+                var contentPath = this.environment.ContentRootPath;
+                var path = Path.Combine(contentPath, "Uploads");
+
                 if (System.IO.File.Exists(path))
                 {
                     System.IO.File.Delete(path);
