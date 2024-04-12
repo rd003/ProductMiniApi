@@ -10,5 +10,6 @@ namespace ProductMiniApi.Repository.Abastract
         Task<Product?> FindByIdAsync(int id);
         Task UpdateAsync(Product product);
         Task DeleteAsync(Product product);
+        Task<IEnumerable<Product>> GetProducts();
     }
 }

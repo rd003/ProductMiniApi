@@ -11,6 +11,12 @@ namespace ProductMiniApi.Repository.Implementation
 		{
 			this._context = context;
 		}
+
+		public async Task<IEnumerable<Product>> GetProducts()
+		{
+			return await _context.Product.AsNoTracking().ToListAsync();
+		}
+
 		public bool Add(Product model)
 		{
 			try
