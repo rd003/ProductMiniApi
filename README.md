@@ -8,6 +8,11 @@ APIs for Image manipulation (Add/Update/Delete/GetALL)
 - .EF Core 6
 - MSSQL
 
+## ImagePath
+
+eg:
+`https://localhost:7077/resources/5b7c9e4d-3324-4f71-9b4c-a938d7edafde.jpg`
+
 ## Endpoints
 
 - GET: api/products
