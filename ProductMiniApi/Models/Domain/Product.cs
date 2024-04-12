@@ -12,6 +12,19 @@ namespace ProductMiniApi.Models.Domain
         public string? ProductImage { get; set; }
 
         [NotMapped]
-        public IFormFile? ImageFile{ get; set; }
+        public IFormFile? ImageFile { get; set; }
+    }
+
+    public class ProductUpdateModel
+    {
+        public int Id { get; set; }
+        [Required]
+        public string? ProductName { get; set; }
+
+        [Required]
+        public string? ProductImage { get; set; }
+
+        [NotMapped]
+        public IFormFile? ImageFile { get; set; }
     }
 }

@@ -17,7 +17,7 @@ namespace ProductMiniApi.Repository.Implementation
             {
                 var contentPath = this.environment.ContentRootPath;
                 // path = "c://projects/productminiapi/uploads" ,not exactly something like that
-                var path = Path.Combine(contentPath, "Uploads"); 
+                var path = Path.Combine(contentPath, "Uploads");
                 if (!Directory.Exists(path))
                 {
                     Directory.CreateDirectory(path);
@@ -46,24 +46,13 @@ namespace ProductMiniApi.Repository.Implementation
             }
         }
 
-        public bool DeleteImage(string imageFileName)
+        public async Task DeleteImage(string imageFileName)
         {
-            try
-            {
-                var contentPath = this.environment.ContentRootPath;
-                var path = Path.Combine(contentPath, "Uploads");
-
-                if (System.IO.File.Exists(path))
-                {
-                    System.IO.File.Delete(path);
-                    return true;
-                }
-                return false;
-            }
-            catch (Exception ex)
-            {
-                return false;
-            }
+            var contentPath = this.environment.ContentRootPath;
+            var path = Path.Combine(contentPath, $"Uploads", imageFileName);
+            if (File.Exists(path))
+                File.Delete(path);
         }
+
     }
 }

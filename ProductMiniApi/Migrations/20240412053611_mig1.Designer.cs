@@ -11,8 +11,8 @@ using ProductMiniApi.Models.Domain;
 namespace ProductMiniApi.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20221105144357_init")]
-    partial class init
+    [Migration("20240412053611_mig1")]
+    partial class mig1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
