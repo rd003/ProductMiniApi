@@ -13,6 +13,15 @@ builder.Services.AddDbContext<DatabaseContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("conn")));
 builder.Services.AddTransient<IFileService, FileService>();
 builder.Services.AddTransient<IProductRepository, ProductRepostory>();
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(
+        policy =>
+        {
+            policy.WithOrigins("*").AllowAnyMethod().AllowAnyHeader(); ;
+        });
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -24,6 +33,7 @@ app.UseStaticFiles(new StaticFileOptions
            Path.Combine(builder.Environment.ContentRootPath, "Uploads")),
     RequestPath = "/Resources"
 });
+app.UseCors();
 app.UseAuthorization();
 
 app.MapControllers();
