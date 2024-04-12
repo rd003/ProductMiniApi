@@ -146,5 +146,24 @@ namespace ProductMiniApi.Controllers
             }
         }
 
+        // GET: api/products
+        public async Task<IActionResult> GetProducts()
+        {
+            try
+            {
+                var products = await _productRepo.GetProducts();
+                return Ok(products);
+
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, new Status
+                {
+                    StatusCode = 500,
+                    Message = ex.Message
+                });
+            }
+        }
+
     }
 }
